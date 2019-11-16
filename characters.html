@@ -17,11 +17,17 @@
         <div class="header-dark"
             style="background-image: url(&quot;assets/img/spooky.jpg&quot;);opacity: 1;filter: blur(0px) brightness(100%) contrast(100%) grayscale(0%);margin: 0px;background-size: auto;background-repeat: round;">
             <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
-                <div class="container"><a class="navbar-brand" href="#">Monster of the Week</a><button
-                        data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
+                <div class="container"><a class="navbar-brand" href="https://motw.owlbynight.com">Monster of the
+                        Week</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
                             class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav">
+                            <li class="nav-item active" role="presentation">
+                                <button type="button" type="button" class="btn btn-light" onclick="handleClick()">ROLL
+                                    2d6</button>
+                                </a>
+                            </li>
+                            </li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Basic
                                     Mechanics</a>
                             </li>
@@ -177,6 +183,13 @@
     </div>
     </div>
     </div>
+    <script>
+        const handleClick = async () => {
+            const response = await fetch('https://motw.app/api/roll');
+            const jsonResponse = await response.json(); //extract JSON from the http response
+            console.log(jsonResponse)
+        }
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
